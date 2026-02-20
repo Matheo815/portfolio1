@@ -7,17 +7,17 @@
   <meta name="description" content="Portfolio de Mathéo Morel Ramirez — Étudiant en BUT GEII, orientation automatisme & informatique industrielle." />
   <style>
     :root{
-      /* Style “automatisme industriel” : gris acier + bleu type Siemens */
-      --bg:#0b0f14;
-      --card:#111827;
-      --muted:#a7b0c0;
-      --text:#eef2ff;
-      --accent:#00a0e6;   /* bleu industriel */
-      --accent2:#00d1b2;  /* léger vert/teal */
-      --border:rgba(255,255,255,.10);
-      --shadow: 0 12px 34px rgba(0,0,0,.55);
+      /* Style blanc + noir */
+      --bg:#ffffff;
+      --card:#ffffff;
+      --muted:#4b5563;
+      --text:#0f172a;
+      --accent:#000000;
+      --accent2:#1f2937;
+      --border:rgba(0,0,0,.08);
+      --shadow: 0 8px 24px rgba(0,0,0,.08);
       --radius: 18px;
-      --glow: 0 0 0 1px rgba(0,160,230,.20), 0 14px 44px rgba(0,160,230,.14);
+      --glow: 0 0 0 1px rgba(0,0,0,.08), 0 10px 30px rgba(0,0,0,.10);
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -25,9 +25,7 @@
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
       background:
-        radial-gradient(1200px 650px at 18% 8%, rgba(0,160,230,.18), transparent 58%),
-        radial-gradient(900px 600px at 92% 18%, rgba(0,209,178,.10), transparent 55%),
-        linear-gradient(180deg, #0b0f14 0%, #0a0d12 100%);
+        linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
       color:var(--text);
       line-height:1.6;
     }
@@ -37,8 +35,7 @@
     /* Top nav */
     .nav{
       position:sticky; top:0; z-index:50;
-      background: rgba(11,15,20,.82);
-      backdrop-filter: blur(10px);
+      background:#ffffff;
       border-bottom:1px solid var(--border);
     }
     .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
@@ -67,12 +64,16 @@
     @media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
 
     .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      background: var(--card);
       border:1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow:hidden;
-      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow: var(--glow);
     }
     .card:hover{
       transform: translateY(-2px);
@@ -90,7 +91,7 @@
       padding:8px 10px;
       border-radius:999px;
       border:1px solid var(--border);
-      background: rgba(0,160,230,.14);
+      background: rgba(0,0,0,.05);
       color:var(--text);
     }
 
@@ -111,8 +112,8 @@
       box-shadow: 0 10px 26px rgba(0,0,0,.35);
     }
     .btn.primary{
-      border-color: rgba(0,160,230,.35);
-      background: linear-gradient(135deg, rgba(0,160,230,.22), rgba(0,209,178,.10));
+      border-color: rgba(0,0,0,.2);
+      background: linear-gradient(135deg, rgba(0,0,0,.08), rgba(0,0,0,.03));
     }
     .btn:hover{background:rgba(255,255,255,.07)}
     .btn.primary{

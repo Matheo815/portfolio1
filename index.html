@@ -7,28 +7,25 @@
   <meta name="description" content="Portfolio de Mathéo Morel Ramirez — Étudiant en BUT GEII, orientation automatisme & informatique industrielle." />
   <style>
     :root{
-      --bg:#f6f8ff;
-      --card:#ffffff;
-      --muted:#4b5a7a;
-      --text:#0b1020;
-      --accent:#2f6fff;
-      --accent2:#00c2a8;
-      --border:rgba(11,16,32,.12);
-      --shadow: 0 10px 30px rgba(11,16,32,.10);
+      --bg:#0f172a;
+      --card:#1e293b;
+      --muted:#94a3b8;
+      --text:#f1f5f9;
+      --accent:#3b82f6;
+      --accent2:#14b8a6;
+      --border:rgba(148,163,184,.18);
+      --shadow: 0 8px 25px rgba(0,0,0,.35);
       --radius: 18px;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
       background:
-        radial-gradient(1100px 650px at 15% 10%, rgba(47,111,255,.12), transparent 60%),
-        radial-gradient(900px 600px at 95% 15%, rgba(0,194,168,.10), transparent 55%),
-        radial-gradient(900px 700px at 40% 110%, rgba(47,111,255,.08), transparent 55%),
-        var(--bg);
+        linear-gradient(180deg, #0f172a 0%, #111827 100%);
       color:var(--text);
-      line-height:1.55;
+      line-height:1.6;
     }
     a{color:inherit}
     .container{max-width:1080px;margin:0 auto;padding:24px}
@@ -36,8 +33,7 @@
     /* Top nav */
     .nav{
       position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: rgba(11,16,32,.72);
+      background:#111827;
       border-bottom:1px solid var(--border);
     }
     .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
@@ -66,7 +62,7 @@
     @media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
 
     .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      background: var(--card);
       border:1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -83,7 +79,7 @@
       padding:8px 10px;
       border-radius:999px;
       border:1px solid var(--border);
-      background:rgba(17,26,51,.55);
+      background:rgba(59,130,246,.15);
       color:var(--text);
     }
 
@@ -94,7 +90,7 @@
       border:1px solid var(--border);
       text-decoration:none;
       font-size:13px;
-      background:rgba(255,255,255,.04);
+      background:rgba(255,255,255,.06);
       color:var(--text);
     }
     .btn:hover{background:rgba(255,255,255,.07)}
@@ -124,7 +120,7 @@
     .pill-row{display:flex;gap:10px;flex-wrap:wrap}
     .pill{
       border:1px solid var(--border);
-      background: rgba(255,255,255,.03);
+      background: rgba(59,130,246,.12);
       border-radius:999px;
       padding:8px 10px;
       font-size:12px;

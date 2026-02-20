@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio — Mathéo Morel Ramirez</title>
+  <meta name="description" content="Portfolio de Mathéo Morel Ramirez — Étudiant en BUT GEII, orientation automatisme & informatique industrielle." />
+  <style>
+    :root{
+      --bg:#f6f8ff;
+      --card:#ffffff;
+      --muted:#4b5a7a;
+      --text:#0b1020;
+      --accent:#2f6fff;
+      --accent2:#00c2a8;
+      --border:rgba(11,16,32,.12);
+      --shadow: 0 10px 30px rgba(11,16,32,.10);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1100px 650px at 15% 10%, rgba(47,111,255,.12), transparent 60%),
+        radial-gradient(900px 600px at 95% 15%, rgba(0,194,168,.10), transparent 55%),
+        radial-gradient(900px 700px at 40% 110%, rgba(47,111,255,.08), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit}
+    .container{max-width:1080px;margin:0 auto;padding:24px}
+
+    /* Top nav */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,16,32,.72);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .dot{
+      width:12px;height:12px;border-radius:999px;
+      background: linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow:0 0 0 4px rgba(106,166,255,.12);
+    }
+    .brand strong{font-size:14px;letter-spacing:.4px}
+    .brand span{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+    .links{display:flex;gap:14px;flex-wrap:wrap}
+    .links a{
+      text-decoration:none;
+      font-size:13px;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid transparent;
+      color:var(--muted);
+    }
+    .links a:hover{border-color:var(--border);color:var(--text);background:rgba(255,255,255,.04)}
+
+    /* Hero */
+    .hero{padding:44px 0 10px}
+    .hero-grid{display:grid;grid-template-columns: 1.25fr .75fr;gap:22px;align-items:stretch}
+    @media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card-inner{padding:22px}
+
+    h1{margin:0 0 12px;font-size:34px;line-height:1.12}
+    .subtitle{color:var(--muted);font-size:14px;margin:0 0 18px}
+
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0}
+    .badge{
+      font-size:12px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(17,26,51,.55);
+      color:var(--text);
+    }
+
+    .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:11px 14px;border-radius:12px;
+      border:1px solid var(--border);
+      text-decoration:none;
+      font-size:13px;
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+    }
+    .btn:hover{background:rgba(255,255,255,.07)}
+    .btn.primary{
+      border-color: rgba(106,166,255,.35);
+      background: linear-gradient(135deg, rgba(106,166,255,.25), rgba(111,255,215,.12));
+    }
+
+    /* Sections */
+    section{padding:18px 0}
+    .section-title{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:0 0 10px}
+    .section-title h2{margin:0;font-size:18px}
+    .section-title p{margin:0;color:var(--muted);font-size:13px}
+
+    .grid{display:grid;grid-template-columns: repeat(12, 1fr);gap:16px}
+    .col-7{grid-column: span 7}
+    .col-5{grid-column: span 5}
+    .col-6{grid-column: span 6}
+    .col-12{grid-column: span 12}
+    @media (max-width:900px){.col-7,.col-5,.col-6{grid-column:span 12}}
+
+    .list{margin:10px 0 0;padding:0;list-style:none}
+    .list li{display:flex;gap:10px;margin:10px 0;color:var(--text)}
+    .list li b{min-width:140px}
+    .muted{color:var(--muted)}
+
+    .pill-row{display:flex;gap:10px;flex-wrap:wrap}
+    .pill{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      border-radius:999px;
+      padding:8px 10px;
+      font-size:12px;
+      color:var(--text);
+    }
+
+    /* Project cards */
+    .project{
+      display:flex;flex-direction:column;gap:10px;
+      height:100%;
+    }
+    .project h3{margin:0;font-size:16px}
+    .project p{margin:0;color:var(--muted);font-size:13px}
+    .project .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+
+    .project-media{
+      width:100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 14px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background: linear-gradient(135deg, rgba(47,111,255,.10), rgba(0,194,168,.08));
+      display:flex;align-items:center;justify-content:center;
+    }
+    .project-media img{width:100%;height:100%;object-fit:cover;display:block}
+    .project-media .placeholder{font-size:12px;color:var(--muted);padding:10px;text-align:center}
+
+    details.proj-details{
+      border-top:1px dashed var(--border);
+      padding-top:10px;
+      margin-top:2px;
+    }
+    details.proj-details summary{
+      list-style:none;
+      cursor:pointer;
+      user-select:none;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 11px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:rgba(11,16,32,.03);
+      font-size:12px;
+      color:var(--text);
+    }
+    details.proj-details summary::-webkit-details-marker{display:none}
+    details.proj-details[open] summary{background:rgba(47,111,255,.10);border-color:rgba(47,111,255,.25)}
+    .details-body{margin-top:10px;color:var(--muted);font-size:13px}
+    .details-body ul{margin:8px 0 0;padding-left:18px}
+    .details-body li{margin:6px 0}
+
+    .tag{font-size:11px;padding:6px 8px;border-radius:999px;border:1px solid var(--border);background:rgba(11,16,32,.03);color:var(--text)}
+
+    /* Footer */
+    footer{padding:26px 0 40px;color:var(--muted);font-size:12px}
+
+    /* Tiny icons */
+    .icon{width:16px;height:16px;display:inline-block}
+    .icon svg{width:16px;height:16px;fill:currentColor}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Accueil">
+        <span class="dot" aria-hidden="true"></span>
+        <div>
+          <strong>Mathéo Morel Ramirez</strong>
+          <span>Étudiant BUT GEII • Automatisme & Informatique industrielle</span>
+        </div>
+      </a>
+      <nav class="links" aria-label="Navigation">
+        <a href="#apropos">À propos</a>
+        <a href="#formation">Formation</a>
+        <a href="#projet">Projet pro</a>
+        <a href="#projets">Projets</a>
+        <a href="#competences">Compétences</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <main id="top" class="container">
+    <div class="hero">
+      <div class="hero-grid">
+        <div class="card">
+          <div class="card-inner">
+            <h1>Portfolio</h1>
+            <p class="subtitle">
+              Je m’appelle <b>Mathéo Morel Ramirez</b> (né le <b>11/04/2006</b>) et je suis étudiant en <b>BUT GEII</b>.
+              Je m’oriente vers les métiers de l’<b>automatisme</b> et de l’<b>informatique industrielle</b>, avec un objectif :
+              devenir <b>technicien en informatique industrielle</b> après le BUT.
+            </p>
+
+            <div class="badges" aria-label="Points clés">
+              <span class="badge">BUT GEII (depuis 2025)</span>
+              <span class="badge">Bac STI2D SIN (2023–2025)</span>
+              <span class="badge">Projets : suiveur de ligne, SAÉ Arduino</span>
+            </div>
+
+            <div class="cta">
+              <a class="btn primary" href="#projets">
+                <span class="icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"></path><path d="M5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7H5V5z"></path></svg>
+                </span>
+                Voir mes projets
+              </a>
+              <a class="btn" href="#contact">Me contacter</a>
+              <!-- Astuce : remplacez le # par le lien vers votre PDF (CV/rapport) si vous en avez un -->
+              <a class="btn" href="#" onclick="alert('Ajoutez ici le lien vers votre CV (PDF)'); return false;">Télécharger mon CV (PDF)</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <div class="section-title" style="margin-bottom:12px">
+              <h2>Infos rapides</h2>
+              <p>Résumé en 30 secondes</p>
+            </div>
+            <ul class="list">
+              <li><b>Profil</b><span class="muted">Étudiant GEII, orientation systèmes automatisés</span></li>
+              <li><b>Objectif</b><span class="muted">Stage puis poste de technicien en informatique industrielle</span></li>
+              <li><b>Points forts</b><span class="muted">Rigueur, analyse, travail en équipe, autonomie</span></li>
+            </ul>
+            <div style="height:14px"></div>
+            <div class="pill-row" aria-label="Centres d’intérêt">
+              <span class="pill">Programmation embarquée</span>
+              <span class="pill">Automatisme</span>
+              <span class="pill">Réseaux industriels</span>
+              <span class="pill">Électronique</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- À PROPOS -->
+    <section id="apropos">
+      <div class="section-title">
+        <h2>À propos</h2>
+        <p>Qui je suis</p>
+      </div>
+      <div class="card">
+        <div class="card-inner">
+          <p style="margin:0">
+            Je m’appelle <b>Mathéo Morel Ramirez</b>, né le <b>11 avril 2006</b>, et je suis étudiant en <b>BUT GEII</b> (Génie Électrique et Informatique Industrielle).
+            Cette formation me permet d’acquérir des compétences en <b>électricité</b>, <b>automatisme</b> et <b>informatique industrielle</b>, avec une approche concrète du milieu industriel.
+          </p>
+          <p class="muted" style="margin:12px 0 0">
+            Curieux, motivé et rigoureux, je m’intéresse particulièrement aux <b>systèmes automatisés</b>, à la <b>programmation</b> et au fonctionnement des installations industrielles.
+            J’aime comprendre comment les systèmes techniques interagissent entre eux et chercher des solutions efficaces à des problématiques réelles.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMATION -->
+    <section id="formation">
+      <div class="section-title">
+        <h2>Parcours universitaire / formation</h2>
+        <p>Mon parcours</p>
+      </div>
+      <div class="grid">
+        <div class="card col-6">
+          <div class="card-inner">
+            <h3 style="margin:0 0 6px">BUT GEII (depuis 2025)</h3>
+            <p class="muted" style="margin:0">
+              Formation universitaire en trois ans orientée vers <b>l’électricité</b>, <b>l’automatisme</b> et <b>l’informatique industrielle</b>.
+              Développement de compétences en <b>programmation</b>, <b>réseaux industriels</b> et <b>systèmes automatisés</b>, au travers de projets et de travaux pratiques.
+            </p>
+          </div>
+        </div>
+        <div class="card col-6">
+          <div class="card-inner">
+            <h3 style="margin:0 0 6px">Bac STI2D — option SIN (2023–2025)</h3>
+            <p class="muted" style="margin:0">
+              Lycée <b>Robert Doisneau</b> (Corbeil‑Essonnes) : Systèmes d’Information et Numérique.
+              Bases en technologie, électronique/électricité, automatisme et informatique, avec une démarche projet.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJET PRO -->
+    <section id="projet">
+      <div class="section-title">
+        <h2>Projet professionnel</h2>
+        <p>Objectif & missions</p>
+      </div>
+      <div class="card">
+        <div class="card-inner">
+          <p style="margin:0 0 10px">
+            Mon projet professionnel est de devenir <b>technicien en informatique industrielle</b> à l’issue des <b>trois années</b> de BUT GEII.
+            Dans le cadre de ma formation, je souhaite réaliser un <b>stage</b> afin de mettre en pratique les connaissances théoriques acquises et de développer mes compétences.
+          </p>
+          <p class="muted" style="margin:0 0 12px">
+            Le technicien en informatique industrielle installe, programme, exploite et maintient des systèmes informatisés industriels :
+            <b>automates programmables</b>, <b>IHM</b>, <b>supervision</b> et <b>réseaux industriels</b>. Il intervient lors de la mise en service,
+            réalise des tests, assure le dépannage et contribue à la performance et à la sécurité des installations, dans le respect des normes.
+          </p>
+          <ul class="list" style="margin-top:0">
+            <li><b>Missions visées</b><span class="muted">mise en service, tests, dépannage, maintenance, amélioration continue</span></li>
+            <li><b>Technos</b><span class="muted">automates/PLC, IHM/SCADA, réseaux industriels, capteurs/actionneurs</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARCOURS PRO -->
+    <section id="parcours-pro">
+      <div class="section-title">
+        <h2>Parcours professionnel</h2>
+        <p>Expériences & stage</p>
+      </div>
+      <div class="card">
+        <div class="card-inner">
+          <p style="margin:0">
+            À ce jour, mon parcours professionnel est principalement lié à ma formation en BUT GEII.
+            Je n’ai pas encore d’expérience professionnelle significative, mais les projets, travaux pratiques et le travail en équipe
+            m’apportent une première approche des exigences du monde industriel.
+          </p>
+          <p class="muted" style="margin:12px 0 0">
+            Ces activités m’ont permis de développer l’organisation, la rigueur et la capacité à travailler en collaboration.
+            Je souhaite compléter ce parcours par un stage en entreprise afin de découvrir un environnement industriel réel et d’acquérir une expérience
+            concrète en lien avec mon objectif de technicien en informatique industrielle.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETS -->
+    <section id="projets">
+      <div class="section-title">
+        <h2>Réalisations</h2>
+        <p>Projets & montages</p>
+      </div>
+      <div class="grid">
+        <div class="card col-6">
+          <div class="card-inner project">
+            <div class="project-media">
+              <!-- Remplacez par votre image : <img src="images/metronome.jpg" alt="Métronome réglable"> -->
+              <div class="placeholder">Image à ajouter (métronome)</div>
+            </div>
+            <h3>Métronome réglable</h3>
+            <p>Conception d’un montage générant un signal périodique réglable (tempo), avec phase de réglages et vérification.</p>
+            <details class="proj-details">
+              <summary>Afficher les détails</summary>
+              <div class="details-body">
+                <b>Objectif :</b> obtenir une tempo réglable et stable.
+                <ul>
+                  <li>Réglage de la temporisation et validation du comportement.</li>
+                  <li>Mesures et ajustements pour stabiliser le fonctionnement.</li>
+                  <li>Compte rendu technique (résultats + observations).</li>
+                </ul>
+              </div>
+            </details>
+            <div class="meta"><span class="tag">Électronique</span><span class="tag">Tests & réglages</span></div>
+          </div>
+        </div>
+
+        <div class="card col-6">
+          <div class="card-inner project">
+            <div class="project-media">
+              <!-- Remplacez par votre image : <img src="images/robot-son.jpg" alt="Robot commandé par le son"> -->
+              <div class="placeholder">Image à ajouter (robot son)</div>
+            </div>
+            <h3>Robot commandé par le son</h3>
+            <p>Robot réagissant à un signal sonore : acquisition, traitement et déclenchement d’actions sur les moteurs.</p>
+            <details class="proj-details">
+              <summary>Afficher les détails</summary>
+              <div class="details-body">
+                <b>Objectif :</b> piloter le robot à partir d’un événement sonore.
+                <ul>
+                  <li>Détection du signal et définition d’un seuil/condition.</li>
+                  <li>Logique de commande des actionneurs selon la détection.</li>
+                  <li>Essais et corrections pour limiter les faux déclenchements.</li>
+                </ul>
+              </div>
+            </details>
+            <div class="meta"><span class="tag">Capteurs</span><span class="tag">Commande</span></div>
+          </div>
+        </div>
+
+        <div class="card col-6">
+          <div class="card-inner project">
+            <div class="project-media">
+              <!-- Remplacez par votre image : <img src="images/suiveur-arduino.jpg" alt="Suiveur de ligne Arduino"> -->
+              <div class="placeholder">Image à ajouter (suiveur Arduino)</div>
+            </div>
+            <h3>Robot suiveur de ligne (avec Arduino)</h3>
+            <p>Développement d’un suivi de ligne en embarqué : lecture de capteurs, commande moteurs et stabilisation.</p>
+            <details class="proj-details">
+              <summary>Afficher les détails</summary>
+              <div class="details-body">
+                <b>Objectif :</b> suivre une ligne au sol avec correction de trajectoire.
+                <ul>
+                  <li>Lecture des capteurs et prise de décision.</li>
+                  <li>Commande des moteurs (vitesse/direction) selon les états.</li>
+                  <li>Débogage et réglages pour améliorer la précision.</li>
+                </ul>
+              </div>
+            </details>
+            <div class="meta"><span class="tag">Arduino</span><span class="tag">Programmation</span><span class="tag">Débogage</span></div>
+          </div>
+        </div>
+
+        <div class="card col-6">
+          <div class="card-inner project">
+            <div class="project-media">
+              <!-- Remplacez par votre image : <img src="images/suiveur-sans-arduino.jpg" alt="Suiveur de ligne sans Arduino"> -->
+              <div class="placeholder">Image à ajouter (suiveur sans Arduino)</div>
+            </div>
+            <h3>Robot suiveur de ligne (sans Arduino)</h3>
+            <p>Conception et câblage d’un système de commande par électronique analogique et logique (capteurs → traitement → moteurs).</p>
+            <details class="proj-details">
+              <summary>Afficher les détails</summary>
+              <div class="details-body">
+                <b>Objectif :</b> corriger la trajectoire en agissant sur l’alimentation des moteurs.
+                <ul>
+                  <li>Traitement des signaux capteurs (comparaison/seuil).</li>
+                  <li>Temporisation via monostable (NE555) pour stabiliser la commande.</li>
+                  <li>Logique combinatoire + étages de puissance moteurs.</li>
+                </ul>
+              </div>
+            </details>
+            <div class="meta"><span class="tag">Comparateur</span><span class="tag">NE555</span><span class="tag">Logique</span><span class="tag">Puissance</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPÉTENCES -->
+    <section id="competences">
+      <div class="section-title">
+        <h2>Synthèse de mes compétences</h2>
+        <p>Techniques, méthodes et soft skills</p>
+      </div>
+      <div class="grid">
+        <div class="card col-7">
+          <div class="card-inner">
+            <h3 style="margin:0 0 10px">Compétences techniques</h3>
+            <div class="pill-row">
+              <span class="pill">Informatique industrielle : systèmes automatisés</span>
+              <span class="pill">Programmation : logique + embarqué (Arduino)</span>
+              <span class="pill">Lecture / analyse de schémas électriques</span>
+              <span class="pill">Câblage, tests, validation de montages</span>
+              <span class="pill">Outils de mesure (multimètre, oscilloscope…)</span>
+            </div>
+            <div style="height:14px"></div>
+            <h3 style="margin:0 0 10px">Compétences méthodologiques</h3>
+            <div class="pill-row">
+              <span class="pill">Analyse d’un cahier des charges</span>
+              <span class="pill">Tests, mesures, validation</span>
+              <span class="pill">Rédaction de comptes rendus techniques</span>
+            </div>
+            <div style="height:14px"></div>
+            <h3 style="margin:0 0 10px">Logiciels</h3>
+            <div class="pill-row">
+              <span class="pill">PSIM</span>
+              <span class="pill">WintypON</span>
+              <span class="pill">WinSchem</span>
+            </div>
+          </div>
+        </div>
+        <div class="card col-5">
+          <div class="card-inner">
+            <h3 style="margin:0 0 10px">Mes atouts / talents personnels</h3>
+            <ul class="list" style="margin:0">
+              <li><b>Rigueur</b><span class="muted">attentif aux consignes et à la qualité</span></li>
+              <li><b>Intérêt</b><span class="muted">systèmes automatisés & informatique industrielle</span></li>
+              <li><b>Équipe</b><span class="muted">collaboration, échanges techniques</span></li>
+              <li><b>Organisation</b><span class="muted">méthode, suivi des tâches</span></li>
+              <li><b>Autonomie</b><span class="muted">progression et apprentissage</span></li>
+              <li><b>Analyse</b><span class="muted">diagnostic et adaptation</span></li>
+              <li><b>Communication</b><span class="muted">communication technique</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>Me joindre</p>
+      </div>
+      <div class="grid">
+        <div class="card col-7">
+          <div class="card-inner">
+            <p class="muted" style="margin:0 0 10px">
+              Remplacez les champs ci-dessous par vos informations.
+              (Astuce : ajoutez aussi votre LinkedIn ou GitHub si vous en avez un.)
+            </p>
+            <ul class="list" style="margin:0">
+              <li><b>Email</b><span class="muted"><a href="mailto:morelramirez.matheo2006@gmail.com">morelramirez.matheo2006@gmail.com</a></span></li>
+              <li><b>Ville</b><span class="muted">Corbeil-Essonnes / Île-de-France</span></li>
+              <li><b>LinkedIn</b><span class="muted">linkedin.com/in/…</span></li>
+              <li><b>GitHub</b><span class="muted">github.com/…</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="card col-5">
+          <div class="card-inner">
+            <h3 style="margin:0 0 10px">Message rapide</h3>
+            <form onsubmit="return handleSubmit(event)">
+              <label class="muted" for="msg" style="display:block;font-size:12px;margin-bottom:8px">Votre message</label>
+              <textarea id="msg" rows="6" style="width:100%;border-radius:14px;border:1px solid var(--border);background:rgba(0,0,0,.18);color:var(--text);padding:12px;resize:vertical"></textarea>
+              <div style="height:10px"></div>
+              <button class="btn primary" type="submit" style="width:100%">Copier le message</button>
+              <p class="muted" style="margin:10px 0 0;font-size:12px">
+                (Ce bouton copie le message dans le presse‑papiers. Vous pourrez ensuite le coller dans un mail.)
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> — Portfolio de Mathéo Morel Ramirez • Dernière mise à jour : <span id="updated"></span>
+    </footer>
+  </main>
+
+  <script>
+    // Mise à jour automatique du footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('updated').textContent = new Date().toLocaleDateString('fr-FR');
+
+    // Form: copie du message
+    function handleSubmit(e){
+      e.preventDefault();
+      const text = document.getElementById('msg').value.trim();
+      if(!text){
+        alert('Écrivez un message avant de copier.');
+        return false;
+      }
+      navigator.clipboard.writeText(text)
+        .then(()=> alert('Message copié ✅'))
+        .catch(()=> alert('Impossible de copier automatiquement. Copiez manuellement.'));
+      return false;
+    }
+  </script>
+</body>
+</html>

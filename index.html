@@ -166,7 +166,8 @@
       background:#f3f4f6;
       display:flex;align-items:center;justify-content:center;
     }
-    .project-media img{width:100%;height:100%;object-fit:cover;display:block}
+    .project-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .28s ease, filter .28s ease;cursor:pointer}
+    .project-media:hover img{transform:scale(1.04);filter:contrast(1.03)}
     .project-media .placeholder{font-size:12px;color:var(--muted);padding:10px;text-align:center}
 
     details.proj-details{
@@ -213,6 +214,9 @@
   </style>
 </head>
 <body>
+  <div id="lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:2000;align-items:center;justify-content:center;padding:24px" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Agrandissement" style="max-width:min(1100px,95vw);max-height:90vh;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.45)">
+  </div>
   <!-- NAV -->
   <div class="nav">
     <div class="container nav-inner">
@@ -394,89 +398,57 @@
       <div class="grid">
         <div class="card col-6">
           <div class="card-inner project">
-            <div class="project-media">
-              <!-- Remplacez par votre image : <img src="images/metronome.jpg" alt="Métronome réglable"> -->
-              <div class="placeholder">Image à ajouter (métronome)</div>
-            </div>
+            <div class="project-media"><img src="metronome.jpg" alt="Métronome réglable" loading="lazy"></div>
             <h3>Métronome réglable</h3>
-            <p>Conception d’un montage générant un signal périodique réglable (tempo), avec phase de réglages et vérification.</p>
+            <p>Conception d’un montage électronique permettant de générer un signal périodique réglable, avec phase de tests, réglages et validation du fonctionnement.</p>
             <details class="proj-details">
               <summary>Afficher les détails</summary>
               <div class="details-body">
-                <b>Objectif :</b> obtenir une tempo réglable et stable.
+                <b>Objectif :</b> obtenir une temporisation stable et ajustable.
                 <ul>
-                  <li>Réglage de la temporisation et validation du comportement.</li>
-                  <li>Mesures et ajustements pour stabiliser le fonctionnement.</li>
-                  <li>Compte rendu technique (résultats + observations).</li>
+                  <li>Réglage du signal et vérification du comportement du montage.</li>
+                  <li>Mesures et ajustements pour améliorer la stabilité.</li>
+                  <li>Rédaction d’un compte rendu technique avec résultats et observations.</li>
                 </ul>
               </div>
             </details>
-            <div class="meta"><span class="tag">Électronique</span><span class="tag">Tests & réglages</span></div>
+            <div class="meta"><span class="tag">Électronique</span><span class="tag">Réglages</span><span class="tag">Validation</span></div>
           </div>
         </div>
 
         <div class="card col-6">
           <div class="card-inner project">
-            <div class="project-media">
-              <!-- Remplacez par votre image : <img src="images/robot-son.jpg" alt="Robot commandé par le son"> -->
-              <div class="placeholder">Image à ajouter (robot son)</div>
-            </div>
-            <h3>Robot commandé par le son</h3>
-            <p>Robot réagissant à un signal sonore : acquisition, traitement et déclenchement d’actions sur les moteurs.</p>
+            <div class="project-media"><div class="placeholder">Ajoute ici l’image du projet Puissance 4</div></div>
+            <h3>Puissance 4 électronique</h3>
+            <p>Réalisation d’un système de jeu permettant de gérer les actions des joueurs et de détecter automatiquement un alignement gagnant.</p>
             <details class="proj-details">
               <summary>Afficher les détails</summary>
               <div class="details-body">
-                <b>Objectif :</b> piloter le robot à partir d’un événement sonore.
+                <b>Objectif :</b> concevoir un système capable de gérer une partie de Puissance 4.
                 <ul>
-                  <li>Détection du signal et définition d’un seuil/condition.</li>
-                  <li>Logique de commande des actionneurs selon la détection.</li>
-                  <li>Essais et corrections pour limiter les faux déclenchements.</li>
+                  <li>Gestion des entrées des joueurs.</li>
+                  <li>Vérification automatique des alignements de pions.</li>
+                  <li>Affichage ou indication du joueur gagnant.</li>
                 </ul>
               </div>
             </details>
-            <div class="meta"><span class="tag">Capteurs</span><span class="tag">Commande</span></div>
+            <div class="meta"><span class="tag">Logique</span><span class="tag">Programmation</span><span class="tag">Projet</span></div>
           </div>
         </div>
 
         <div class="card col-6">
           <div class="card-inner project">
-            <div class="project-media">
-              <!-- Remplacez par votre image : <img src="images/suiveur-arduino.jpg" alt="Suiveur de ligne Arduino"> -->
-              <div class="placeholder">Image à ajouter (suiveur Arduino)</div>
-            </div>
-            <h3>Robot suiveur de ligne (avec Arduino)</h3>
-            <p>Développement d’un suivi de ligne en embarqué : lecture de capteurs, commande moteurs et stabilisation.</p>
-            <details class="proj-details">
-              <summary>Afficher les détails</summary>
-              <div class="details-body">
-                <b>Objectif :</b> suivre une ligne au sol avec correction de trajectoire.
-                <ul>
-                  <li>Lecture des capteurs et prise de décision.</li>
-                  <li>Commande des moteurs (vitesse/direction) selon les états.</li>
-                  <li>Débogage et réglages pour améliorer la précision.</li>
-                </ul>
-              </div>
-            </details>
-            <div class="meta"><span class="tag">Arduino</span><span class="tag">Programmation</span><span class="tag">Débogage</span></div>
-          </div>
-        </div>
-
-        <div class="card col-6">
-          <div class="card-inner project">
-            <div class="project-media">
-              <!-- Remplacez par votre image : <img src="images/suiveur-sans-arduino.jpg" alt="Suiveur de ligne sans Arduino"> -->
-              <div class="placeholder">Image à ajouter (suiveur sans Arduino)</div>
-            </div>
+            <div class="project-media"><img src="robot-suiveur-sans-arduino.jpg" alt="Robot suiveur de ligne sans Arduino" loading="lazy"></div>
             <h3>Robot suiveur de ligne (sans Arduino)</h3>
-            <p>Conception et câblage d’un système de commande par électronique analogique et logique (capteurs → traitement → moteurs).</p>
+            <p>Conception et câblage d’un système de commande par électronique analogique et logique permettant au robot de corriger sa trajectoire automatiquement.</p>
             <details class="proj-details">
               <summary>Afficher les détails</summary>
               <div class="details-body">
                 <b>Objectif :</b> corriger la trajectoire en agissant sur l’alimentation des moteurs.
                 <ul>
-                  <li>Traitement des signaux capteurs (comparaison/seuil).</li>
-                  <li>Temporisation via monostable (NE555) pour stabiliser la commande.</li>
-                  <li>Logique combinatoire + étages de puissance moteurs.</li>
+                  <li>Traitement des signaux capteurs par comparaison de seuils.</li>
+                  <li>Temporisation via monostable NE555 pour stabiliser la commande.</li>
+                  <li>Logique combinatoire et étages de puissance pour piloter les moteurs.</li>
                 </ul>
               </div>
             </details>
@@ -597,6 +569,26 @@
         .catch(()=> alert('Impossible de copier automatiquement. Copiez manuellement.'));
       return false;
     }
+
+    function openLightbox(src, alt='Image projet'){
+      const box = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      img.alt = alt;
+      box.style.display = 'flex';
+    }
+
+    function closeLightbox(){
+      document.getElementById('lightbox').style.display = 'none';
+    }
+
+    document.querySelectorAll('.project-media img').forEach((img)=>{
+      img.addEventListener('click', ()=> openLightbox(img.src, img.alt));
+    });
+
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape') closeLightbox();
+    });
   </script>
 </body>
 </html>
